@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 
 const Todo = () => {
-  const initialState = {
+  const [todoState, setTodoState] = useState({
     todo: "",
+    name: "",
     todoList: []
-  };
-  const [todoState, setTodoState] = useState(initialState);
+  });
 
   const handleFormState = event => {
     setTodoState({ ...todoState, [event.target.name]: event.target.value });
@@ -20,6 +20,7 @@ const Todo = () => {
 
   return (
     <React.Fragment>
+      <input type="text" name="name" placeholder="Name" value={todoState.name} onChange={handleFormState} />
       <input
         type="text"
         name="todo"
